@@ -1,0 +1,6 @@
+{
+  "name":"backpack-dividend-atlas",
+  "private":true,
+  "version":"1.0.0",
+  "scripts":{"dev":"python3 -m http.server 4173","build":"rm -rf dist && mkdir -p dist && cp index.html style.css app.js dist/ && cp -R public dist/public"}
+}

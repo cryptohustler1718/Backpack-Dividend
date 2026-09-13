@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0d0e13" />
+    <meta name="description" content="An interactive guide to traditional and tokenized stock dividends on Backpack." />
+    <title>Dividend Atlas · Backpack</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="aurora aurora-a"></div><div class="aurora aurora-b"></div>
+    <header class="topbar">
+      <div class="atlas-wordmark"><span>DA</span><b>DIVIDEND ATLAS</b></div>
+      <nav><a href="#how">The two rails</a><a href="#simulator">Run a scenario</a><a href="#faq">Plain English</a></nav>
+      <span class="edition">FIELD NOTE 01</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow"><span class="pulse"></span> BACKPACK SECURITIES · DIVIDEND ATLAS</div>
+        <h1>What happens to your<br /><em>dividend</em> on-chain?</h1>
+        <p class="hero-copy">Follow one stock from purchase to payout. Compare real securities ownership with a tokenized holding—then see how the same capital can connect to Backpack’s trading and lending system.</p>
+        <a class="scroll-cue" href="#simulator">Begin the journey <span>↓</span></a>
+        <div class="orbit-card"><div class="orbit-ring ring-one"></div><div class="orbit-ring ring-two"></div><span class="orbit-token">$</span><span class="orbit-label">REAL ASSET<br /><b>ON-CHAIN</b></span></div>
+      </section>
+
+      <section id="simulator" class="simulator shell">
+        <div class="section-head"><div><div class="eyebrow">01 · BUILD A SCENARIO</div><h2>Put a stock in your Backpack</h2></div><div class="data-note"><span class="dot green"></span> Demo snapshot · replace with live terms</div></div>
+        <div class="sim-grid">
+          <aside class="controls glass">
+            <label>Build your stock basket <span class="help" title="You can split one investment across several stocks.">?</span></label>
+            <div class="stock-list" id="stockList"></div>
+            <div id="allocationInputs" class="allocation-inputs"></div>
+            <div class="field-row"><label for="amount">Total investment amount</label><div class="money-input"><span>$</span><input id="amount" type="number" min="1" step="1" value="1000" /><span>USD</span></div></div>
+            <div class="allocation-note" id="allocationNote">Choose one or more stocks. Allocation is split evenly until you edit it.</div>
+            <div class="field-row"><label for="horizon">How long will you hold it?</label><select id="horizon"><option value="0.5">6 months</option><option value="1" selected>1 year</option><option value="2">2 years</option><option value="3">3 years</option><option value="5">5 years</option></select></div>
+            <div class="field-row"><label>Stock price scenario <output id="priceOut">0%</output></label><input id="price" class="range" type="range" min="-50" max="50" value="0" /></div>
+            <div class="field-row"><label>Dividend assumptions <span class="help" title="A dividend is declared by the company, not Backpack. Enter the latest declared cash amount per share and how often it is paid.">?</span></label><div class="field-hint">Dividend / share = the amount a company declares for one share. Frequency tells us how many payments happen each year.</div><div id="dividendInputs" class="dividend-inputs"></div></div>
+            <div class="disclaimer">Demo assumptions only. Dividends can change or stop. Confirm live security terms, eligibility, taxes, and collateral rules on Backpack before acting.</div>
+          </aside>
+          <div class="journey glass">
+            <div class="mode-switch" role="tablist"><button class="active" data-mode="traditional">Traditional holding</button><button data-mode="tokenized">Tokenized on Solana</button></div>
+            <div class="journey-top"><div><span class="mini-label">YOUR STARTING POSITION</span><strong id="startValue">$1,000.00</strong><span id="stockName">1 stock selected</span></div><div class="step-badge"><span>YOUR JOURNEY</span><b id="stepNo">01</b><i>/ 04</i></div></div>
+            <div class="timeline" id="timeline"></div>
+            <div class="outcome" id="outcome"></div>
+            <div class="mode-explain" id="modeExplain"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how" class="how shell">
+        <div class="section-head"><div><div class="eyebrow">02 · TWO WAYS TO HOLD</div><h2>Same stock. Different rails.</h2></div><p class="section-intro">A perpetual contract can track a stock’s price. It does not automatically give you the rights of owning the stock.</p></div>
+        <div class="compare-grid"><article class="compare-card traditional"><span class="card-number">A</span><h3>Traditional security</h3><p>Brokerage infrastructure creates a security entitlement connected to the underlying share.</p><div class="flow"><span>Company pays</span><b>→</b><span>Broker processes</span><b>→</b><strong>Cash dividend*</strong></div><small>*Subject to eligibility, taxes, and the security’s terms.</small></article><article class="compare-card token"><span class="card-number">B</span><h3>Tokenized security</h3><p>The supported security is represented as a token that can move through compatible Solana wallets and markets.</p><div class="flow"><span>Company pays</span><b>→</b><span>Reinvested</span><b>→</b><strong>More tokens</strong></div><small>Tokenized dividends are generally reflected through a balance or multiplier adjustment.</small></article></div>
+      </section>
+
+      <section class="risk shell">
+        <div class="risk-copy"><div class="eyebrow">03 · CAPITAL CONNECTION</div><h2>Turn a position into usable margin.</h2><p>If your stock position is worth <b>$2,100</b> and Backpack applies a 30% haircut, it may recognize about <b>$1,470</b> as collateral. That is the amount that may support eligible borrowing, spot margin, or futures—not a cash dividend.</p><div class="risk-pills"><span>Market price ↓</span><span>Recognized collateral ↓</span><span>Liquidation risk ↑</span></div></div>
+        <div class="risk-card glass"><div class="risk-head"><span>COLLATERAL LENS</span><span class="eligible" id="eligible">ELIGIBILITY CHECK</span></div><div class="collateral-number"><strong id="collateralValue">$700</strong><span>estimated usable collateral</span></div><div class="bar"><i id="collateralBar"></i></div><div class="risk-foot"><span>Position value <b id="marketVal">$1,000</b></span><span>Illustrative haircut <b>30%</b></span></div><p id="collateralAction">You may be able to use this recognized amount for an eligible Backpack trade or borrow. It is not money you automatically receive.</p><p id="collateralNote">SPCX is shown as an example of a documented eligible collateral asset. Rules can change by asset and region.</p></div>
+      </section>
+
+      <section id="faq" class="faq shell"><div class="section-head"><div><div class="eyebrow">04 · PLAIN ENGLISH</div><h2>Questions a first-time buyer asks</h2></div></div><div class="faq-list"><details open><summary>Does every stock pay a dividend?</summary><p>No. Dividends are declared by the company, not Backpack. Some companies pay regularly; others pay nothing.</p></details><details><summary>Does a tokenized dividend arrive as USDC?</summary><p>Not usually. Backpack’s tokenized-security documentation describes dividends being reinvested into additional tokenized shares. Traditional holdings follow brokerage treatment.</p></details><details><summary>Can I use every stock as collateral?</summary><p>No. Collateral eligibility, haircuts, leverage, and regional availability are asset-specific. Confirm the live Backpack terms before borrowing.</p></details><details><summary>Is a stock perpetual the same as owning shares?</summary><p>No. A perpetual is a derivative contract for price exposure. It should not be described as ownership or as dividend entitlement.</p></details></div></section>
+
+      <section class="cta shell"><div class="cta-glow"></div><div class="eyebrow">THE SHORT VERSION</div><h2>Real ownership.<br /><em>On-chain distribution.</em></h2><p>One guide to understand the rails, the payout, and the risk.</p><button class="tip-button" id="tipButton" type="button">Support this guide · send a tip</button><div class="tip-panel" id="tipPanel" hidden><div><span class="mini-label">SOLANA TIP ADDRESS</span><code>HzMQZEXiyGRcvkjC4puwuVEBkQn95DRRaDf8DcKkcRZm</code></div><button id="copyTip" type="button">Copy address</button><span class="copy-status" id="copyStatus"></span></div></section>
+    </main>
+    <footer><span>Dividend Atlas · an independent educational project</span><span>Educational content, not investment advice.</span></footer>
+    <script src="app.js"></script>
+  </body>
+</html>
