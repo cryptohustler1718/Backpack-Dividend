@@ -44,5 +44,7 @@ $$('.mode-switch button').forEach(b=>b.addEventListener('click',()=>{$$('.mode-s
 $('#horizon').addEventListener('change',update);
 ['#amount','#price'].forEach(s=>$(s).addEventListener('input',update));
 renderStocks();renderAllocationInputs();renderDividendInputs();update();
+function showTipPanel(){const panel=$('#tipPanel');panel.hidden=false;panel.scrollIntoView({behavior:'smooth',block:'center'})}
 $('#tipButton').addEventListener('click',()=>{$('#tipPanel').hidden=!$('#tipPanel').hidden});
+$('#topTipButton').addEventListener('click',showTipPanel);
 $('#copyTip').addEventListener('click',async()=>{try{await navigator.clipboard.writeText('HzMQZEXiyGRcvkjC4puwuVEBkQn95DRRaDf8DcKkcRZm');$('#copyStatus').textContent='Copied'}catch(e){$('#copyStatus').textContent='Copy unavailable — select the address'}});
