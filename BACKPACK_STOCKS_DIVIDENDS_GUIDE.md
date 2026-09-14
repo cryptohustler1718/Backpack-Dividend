@@ -115,7 +115,7 @@ The token is not automatically the same as a common share in every legal or econ
 - how dividends and corporate actions are handled;
 - what geographic restrictions apply.
 
-For Backpack-issued tokenized SPCX, Backpack states that the token is designed to be redeemable 1:1 through Backpack Securities and that tokenized dividends are reinvested into additional tokenized shares. ([Tokenized SpaceX documentation](https://learn.backpack.exchange/blog/introducing-tokenized-spacex-spcx))
+For Backpack-issued tokenized SPCX, Backpack states that the token is designed to be redeemable 1:1 through Backpack Securities and that tokenized dividends are reinvested into additional tokenized shares. ([Tokenized SpaceX documentation](https://learn.backpack.exchange/blog/tokenized-spacex-spcx))
 
 ### Tokenized dividend journey
 
@@ -129,7 +129,7 @@ Dividend is reinvested into more tokenized exposure
 Your token balance / multiplier increases
 ```
 
-That usually means **no separate USDC deposit** arrives in your wallet. Your exposure grows instead.
+For Backpack-issued tokenized securities, Backpack’s current materials describe **automatic reinvestment into additional tokenized shares**, rather than a separate USDC cash credit. The exact implementation remains subject to the security’s terms, so do not generalize this rule to every tokenized stock.
 
 ### A simple token example
 
@@ -137,7 +137,7 @@ These numbers are illustrative, not a live quote.
 
 You hold 10 tokenized shares. The underlying company pays a 1% annual dividend. The mechanism reinvests that dividend into the same exposure.
 
-At the end of the period, the result might be represented economically as roughly 10.10 shares’ worth of exposure before taxes and other adjustments. You did not receive $10. You received additional exposure.
+At the end of the period, the result might be represented economically as roughly 10.10 shares’ worth of exposure before taxes and other adjustments—if the stated 1% payout is reinvested under those assumptions. You did not receive $10. You received additional exposure.
 
 The exact implementation depends on the security’s terms. Never assume every tokenized stock uses the same dividend method.
 
@@ -183,7 +183,7 @@ $1.25 × 4              = $5.00 per year
 
 In a traditional holding, that $5 is shown as a separate cash-dividend result under the applicable brokerage terms.
 
-In a tokenized holding, the equivalent dividend is generally reinvested into additional tokenized exposure rather than sent as a separate $5 USDC transfer.
+For a Backpack-issued tokenized holding, Backpack’s current materials describe the equivalent dividend as automatically reinvested into additional tokenized exposure rather than sent as a separate $5 USDC transfer. Verify the specific security’s terms.
 
 ### Step C — You model the stock price separately
 
@@ -198,7 +198,7 @@ Market value                 $2,120
 Now add the illustrative $5 Apple dividend:
 
 - traditional result: approximately $2,120 in market value plus $5 of dividend treatment, before fees and taxes;
-- tokenized result: approximately $2,120 of marked exposure, with the dividend reflected through additional tokenized exposure rather than a separate cash line.
+- tokenized result: approximately $2,120 of marked exposure, with the dividend reflected through additional tokenized exposure rather than a separate cash line, under the applicable tokenized-security terms.
 
 The calculator must keep these two effects separate. Otherwise a user may mistakenly think the entire increase came from dividends.
 
